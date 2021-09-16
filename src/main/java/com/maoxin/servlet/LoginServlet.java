@@ -16,6 +16,7 @@ public class LoginServlet extends HttpServlet {
         System.out.println("Login");
         String userCode = req.getParameter("userCode");
         String  userPassword = req.getParameter("userPassword");
+        String name = "未命名";
 
         String studentPassword = null;
         PreparedStatement preparedStatement = null;
@@ -30,6 +31,7 @@ public class LoginServlet extends HttpServlet {
                 resultSet = BaseDao.execute(connection,preparedStatement,resultSet,sql,params);
                 if(resultSet.next()){
                     studentPassword = resultSet.getString("password");
+                    name = resultSet.getString("name");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -39,9 +41,11 @@ public class LoginServlet extends HttpServlet {
         if(studentPassword!=null){
             if(studentPassword.equals(userPassword)){
                     System.out.println("登陆成功");
+                    Constants.USER_ID = userCode;
+                    Constants.USER_NAME = name;
                     req.getSession().setAttribute(Constants.USER_SESSION,userCode);
                     req.setAttribute("userName",userCode);
-                    req.getRequestDispatcher("blank.jsp").forward(req, resp);
+                    req.getRequestDispatcher("home-page.jsp").forward(req, resp);
                 }
                 else {
                     System.out.println("密码错误");

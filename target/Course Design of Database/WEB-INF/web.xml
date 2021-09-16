@@ -45,6 +45,33 @@
         <servlet-name>check</servlet-name>
         <url-pattern>/check.do</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>course</servlet-name>
+        <servlet-class>com.maoxin.servlet.CourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>course</servlet-name>
+        <url-pattern>/course.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>changePassword</servlet-name>
+        <servlet-class>com.maoxin.servlet.ChangePasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>changePassword</servlet-name>
+        <url-pattern>/changePassword.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>courseConfirm</servlet-name>
+        <servlet-class>com.maoxin.servlet.CourseConfirmServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>courseConfirm</servlet-name>
+        <url-pattern>/courseConfirm.do</url-pattern>
+    </servlet-mapping>
     
     <servlet>
         <servlet-name>reset</servlet-name>
